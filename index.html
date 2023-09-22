@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LGN Kicks</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #36393f;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 300px;
+            padding: 20px;
+            background-color: #2f3136;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        img {
+            display: block;
+            margin: 0 auto; /* Center the image horizontally */
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: normal;
+        }
+        input[type="number"] {
+            width: 94%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #36393f;
+            color: #fff;
+        }
+        button {
+            background-color: #7289da;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #677bc4;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="LGN Kicks" style="max-width: 100%;" />
+        <form id="calculator">
+            <label for="price">Price (¥):</label>
+            <input type="number" id="price" name="price" step="0.01" required>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" step="0.01" required>
+
+            <label for="extra">Extra Fees:</label>
+            <input type="number" id="extra" name="extra" step="0.01" required>
+
+            <button type="button" onclick="calculatePrice()">Calculate</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculatePrice() {
+            const A = parseFloat(document.getElementById('price').value);
+            const B = parseFloat(document.getElementById('weight').value);
+            const C = parseFloat(document.getElementById('extra').value);
+
+            const result = ((A + 40) * 8.05) + (B * 400) + 200 + C;
+
+            document.getElementById('result').textContent = `Selling Price: ₱${result.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
